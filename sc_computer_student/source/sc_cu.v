@@ -44,16 +44,16 @@ module sc_cu (op, func, z, wmem, wreg, regrt, m2reg, aluc, shift,
                  i_ori | i_xori | i_lw | i_lui  | i_jal;
    
    assign aluc[3] = i_sra;
-   assign aluc[2] = i_sub | i_or | i_lui | i_srl | i_sra;
-   assign aluc[1] = i_xor | i_lui | i_lui | i_sll | i_srl | i_sra;
-   assign aluc[0] = i_and | i_or | i_sll | i_srl | i_sra;
+   assign aluc[2] = i_sub | i_or | i_lui | i_srl | i_sra | i_ori | i_bne | i_beq;
+   assign aluc[1] = i_xor | i_lui | i_sll | i_srl | i_sra | i_xori;
+   assign aluc[0] = i_and | i_or | i_sll | i_srl | i_sra | i_andi | i_ori;
    assign shift   = i_sll | i_srl | i_sra ;
 
-   assign aluimm  = i_addi | i_andi | i_ori | i_xori | i_lw | i_sw | i_beq | i_bne | i_lui;
-   assign sext    = i_sra;
+   assign aluimm  = i_addi | i_andi | i_ori | i_xori | i_lw | i_sw | i_lui;
+   assign sext    = i_addi | i_lw | i_sw | i_beq | i_bne;
    assign wmem    = i_sw;
    assign m2reg   = i_lw;
-   assign regrt   = i_add | i_sub | i_and | i_or | i_xor | i_sll | i_srl | i_sra;
+   assign regrt   = i_addi | i_andi | i_ori | i_xori | i_lw | i_lui;
    assign jal     = i_jal;
 
 endmodule
