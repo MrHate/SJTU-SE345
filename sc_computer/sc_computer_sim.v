@@ -45,13 +45,19 @@ module sc_computer_sim;
     wire   [31:0]  mem_dataout_sim;            // to check data_mem output
     wire   [31:0]  data_sim;
     wire   [31:0]  io_read_data_sim;
+    wire [7:0] sw_input;
+    assign sw_input = 8'b00100001;
    
     wire           wmem_sim;   // connect the cpu and dmem. 
 	 
     sc_computer    sc_computer_instance (resetn_sim,clock_50M_sim,mem_clk_sim,pc_sim,inst_sim,aluout_sim,memout_sim,
-	                                      imem_clk_sim,dmem_clk_sim,out_port0_sim,out_port1_sim,in_port0_sim,in_port1_sim,
-													  mem_dataout_sim,data_sim,io_read_data_sim          );
+	                                      imem_clk_sim,dmem_clk_sim,
+                                          hex0_sim,hex1_sim,hex2_sim,hex3_sim,hex4_sim,hex5_sim,sw_input
+	                                     // ,out_port0_sim,out_port1_sim,in_port0_sim,in_port1_sim,
+													              //mem_dataout_sim,data_sim,io_read_data_sim          
+													  );
 
+//module sc_computer (resetn,clock,mem_clk,pc,inst,aluout,memout,imem_clk,dmem_clk);
 // module sc_computer (resetn,clock,mem_clk,pc,inst,aluout,memout,imem_clk,dmem_clk,out_port0,out_port1,in_port0,in_port1,mem_dataout,data,io_read_data);
 
 /* input resetn,clock,mem_clk;
