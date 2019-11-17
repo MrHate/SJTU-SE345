@@ -39,7 +39,7 @@
 
 ### 主要代码
 
-```
+```verilog
 module stopwatch_01(clk,key_reset,key_start_pause,key_display_stop,
 							hex0,hex1,hex2,hex3,hex4,hex5,
 							led0,led1,led2,led3);
@@ -245,7 +245,7 @@ endmodule
 
 ### 消除抖动
 
-```
+```verilog
 		// check input with joggle removing
 		// it looks like triggering on the button pressed down rather up
 		if(!key_display_stop && !counter_display)counter_display = 1;
@@ -264,7 +264,7 @@ endmodule
 
 ### 十进制转换为七段管信号
 
-```
+```verilog
 module sevenseg(data,ledsegments);
 	input [3:0] data;
 	output ledsegments;
