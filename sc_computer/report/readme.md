@@ -485,7 +485,7 @@ endmodule
 
 ### 加法器汇编程序
 
-```assembly
+```
 DEPTH = 16;           % Memory depth and width are required %
 WIDTH = 32;           % Enter a decimal number %
 ADDRESS_RADIX = HEX;  % Address and value radixes are optional %
