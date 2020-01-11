@@ -46,8 +46,7 @@ module sc_cu (mwreg,mrn,ern,ewreg,em2reg,mm2reg,rsrtequ,func,op,rs,rt,
    wire i_rt = i_add | i_sub | i_and | i_or | i_xor | i_sll | i_srl |
                 i_sra | i_sw | i_beq | i_bne;
     
-   assign wpcir = ~(ewreg & em2reg & (ern != 0) & (i_rs & (ern == rs) |
-                                                    i_rt & (ern == rt)));
+   assign wpcir = ~(ewreg & em2reg & (ern != 0) & (i_rs & (ern == rs) | i_rt & (ern == rt)));
    assign pcsource[1] = i_jr | i_j | i_jal;
    assign pcsource[0] = ( i_beq & rsrtequ ) | (i_bne & ~rsrtequ) | i_j | i_jal ;
    
